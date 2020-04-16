@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * 
  */
@@ -7,20 +9,40 @@
  *
  */
 public class ShipArray {
-	int[] locationCells = new int[7];
+
+	int[] locationCells;
 	int numOfHits = 0;
 	
-	void setLocaionCells() {
+
+	void setLocationCells(int[] locs) {
+
+		locationCells = locs;
+
+	}// end seLocationCells
+
+	public String checkYourself(String stringGuess) {
+
+		int guess = Integer.parseInt(stringGuess);
 		
-		//random number generate here
+		String result = "miss";
 		
-		//while loop
-		//adds two to the array argument passed
-		//so
-	}
-	
-	String checkYourself() {
-		return "hit";
-	}
+		for(int cell : locationCells) {
+			
+			if (guess == cell ) {
+				
+				result =  "hit";
+				numOfHits++;
+			} // end if
+			
+			if(numOfHits == locationCells.length) {
+				return "kill";
+			}//end if
+			
+		}
+		
+		return result;
+			
+		
+	}// end checYourself
 	
 }
